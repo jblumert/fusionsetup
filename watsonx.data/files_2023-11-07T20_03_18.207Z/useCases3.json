@@ -1,0 +1,49 @@
+{
+        "name": "Retail - Item Labelling",
+        "language" : "EN",
+        "buttonName": "Item",
+        "inputs": [
+            "TITLE: \"Three Cheese Macaroni, Smart\"\nDESCRIPTION: \"Kraft Dinner Three Cheese Macaroni & Cheese combines three different kinds of cheese with mini shells for a deliciously creamy meal! When you see the familiar, cheesy KD on the package you know that this macaroni & cheese classic is sure to smile-ify your family's faces. With its iconic cheesy flavour, Kraft Dinner Three Cheese Macaroni & Cheese is the taste you love. Ideal for busy evenings, Kraft Dinner Three Cheese mac & cheese is a family favourite that takes only minutes to prepare.\"",
+            "TITLE: \"Tomato And Basil Pasta Sauce, Di Napoli\"\n\nDESCRIPTION: \"In the colourful Naples city,. The finest pasta sauces start with the freshest ingredients. Classico Tomato and Basil Pasta Sauce is a unique tomato and basil sauce recipe inspired by this Southern Italian region of Campania. The perfect fusion of tomato puree, onions, basil, garlic with a hint of spice gives homemade taste in every jar.. The finest ingredients are used including vine-ripened tomatoes, aromatic cheese and olive oil, and the best herbs and spices are selected to complement each distinct flavour. These ingredients are combined using time-honoured recipes to create a just-like-homemade taste that you have come to enjoy and expect from Classico. It's as if you made it yourself.\"",
+            "TITLE: \"Whitening Toothpaste For Sensitive Teeth With Tartar Fighting\"\n\nDESCRIPTION: \"Sensodyne toothpaste is clinically proven to relieve sensitivity pain and build protection with regular brushing.\"",
+            "TITLE: \"Crisp Clean Scented Antibacterial Hand Soap\"\n\nDESCRIPTION: \"Softsoap Antibacterial Liquid Hand Soap, Crisp Clean contains benzalkonium chloride which is proven to kill harmful bacteria/germs. The clean citrus scent of this antibacterial hand soap makes this the perfect addition to any kitchen or bathroom. Due to its antibacterial formula, the liquid hand soap pump should only be refilled with Softsoap Antibacterial Liquid Hand Soap. It is best to wash hands with soap and clean running water for 30 seconds\"",
+            "TITLE: \"Apple, Honeycrisp\"\n\nDESCRIPTION: \"\""
+        ],
+        "topics": {
+            "topic1": {
+                "topicName": "Get Categories",
+                "modelId": "tiiuae/falcon-40b",
+                "parameters": {
+                    "decoding_method": "sample",
+                    "repetition_penalty": 1.41,
+                    "min_new_tokens": 1,
+                    "max_new_tokens": 30,
+                    "typical_p": 1,
+                    "top_p": 0.32,
+                    "top_k": 30,
+                    "random_seed": 42
+                },
+                "instruction": {
+                    "detailed": "The provided input is a title and description of the same supermarket item. Read the title and description and provide the category and the subcategory.",
+                    "summarized": "The provided input is a title and description of the same supermarket item. Read the title and description and provide the category and the subcategory."
+                },
+                "inputPrefix": "Input:",
+                "outputPrefix": "Output:",
+                "examples": [
+                    {
+                        "input": "TITLE: \"Frozen Garden Vegetable Crustless Quiche, Egg Bakes\"\nDESCRIPTION: \"Burnbrae Farms Frozen Garden Vegetable Crustless Quiches are delicious protein packed egg quiches, prepared with natural ingredients, and ready in 90 seconds! Real eggs. Real easy.\"",
+                        "output": "CATEGORY: \"Frozen food\"\n\nSUBCATEGORY: \"Breakfast food\""
+                    },
+                    {
+                        "input": "TITLE: \"12 Grains Sliced Bread\"\n\nDESCRIPTION: \"Dempster's has been baking and delivering fresh bread to Canadians from coast to coast for over 100 years. With no added artificial flavours or colours, all breads are made with Canadian wheat flour and quality ingredients. Dempster's 12 Grain 100% Whole Wheat bread contains 10 essential nutrients, 45g of whole wheat and 4g of fibre per 2 slices serving.\"",
+                        "output": "CATEGORY: \"Bread\" \n\nSUBCATEGORY: \"Whole wheat & grain\""
+                    },
+                    {
+                        "input": "TITLE: \"Mild Mint Flavoured Zero™ Alcohol Free Antiseptic Mouthwash\"\n\nDESCRIPTION: \"Zero antiseptic oral rinse kills up to 99.9% of germs that cause plaque, gingivitis and bad breath, while containing no alcohol for a less intense feeling. This product comes in a child resistant package.\"",
+                        "output": "CATEGORY: \"Oral care\"\n\nSUBCATEGORY: \"Mouthwash\""
+                    }
+                ],
+                "enabled": false
+            }
+        }
+}

@@ -1,0 +1,113 @@
+{
+	"name": "Customer Review",
+	"language" : "EN",
+	"buttonName": "Customer Review",
+	"inputs": [
+		"Used to really enjoy using the app and being able to see the flyers to plan my shopping but now when I try to see the flyers I just get an error message and it's been happening for months and months without a fix. The app is pretty much useless now so there was no point in keeping it on my phone.",
+		"Use to enjoy the cardlock map but now the update sucks , please go back to map view of all cardlocks instead of list.",
+        "I love this app. I check the coupons every time I go to the grocery store to see what I might be able to save on. I especially love that I can input my Co-op number and easily access it if I ever forget it. You can also add numbers for multiple Co-ops which is a huge bonus for when I'm travelling. Plus, if you're like me and have a bunch of gift cards with miscellaneous dollars left on them - you can check your balance before you go to the store. Total win!"
+			],
+	"topics": {
+		"topic1": {
+			"topicName": "Categorization",
+			"modelId": "meta-llama/llama-2-70b-chat",
+			"parameters": {
+				"decoding_method": "sample",
+				"temperature": 0.7,
+				"top_p": 1,
+				"top_k": 50,
+				"min_new_tokens": 1,
+				"max_new_tokens": 20,
+				"repetition_penalty": 1,
+				"random_seed": 1200,
+                "stop_sequences": [
+                    "\n\n"
+                  ]
+			},
+			"instruction": {
+				"detailed": "Extract whether or not the review is positive or negative and then extract the key topics from the following mobile application reviews. Return if the review is positive or negative and then the key words in a comma separated list.",
+				"summarized": ""
+			},
+			"inputPrefix": "Review:",
+			"outputPrefix": "Answer:",
+			"examples": [{
+					"input": "Keeps trying to update itself all day long then crashes constantly. Waiting for it to uninstall now.",
+					"output": "Negative: Updates"
+                },
+                {
+                    "input": "I love this app & use it often but this is the 2nd week the flyers won't open. I have closed it out & reloaded twice but still wont open? Are u having problems with the app?",
+					"output": "Negative: Flyers"
+
+				},
+                {
+                    "input": "I could really use this app but it's on a continuous update so I've uninstalled it. Please fix it!",
+					"output": "Negative: Updates"
+
+				},
+                {
+                    "input": "Dislike because I cannot access anything! My options are at the bottom of the screen where my back, center, and app options are and cannot open flyers. If I could I would give the app 0/5 stars at this moment. Thank you...",
+					"output": "Negative: Navigation, Flyers"
+
+				},
+                {
+                    "input": "This is a fantastic app! It has new food coupons each week (and home coupons) that the cashiers at the store need a code from, so that is a great feature! The app has a very clean, easy to navigate user interface that also lets you choose store locations, view the available sale flyers, select flyer items to create a Shopping List, as well as a Notes section, Refresh Data feature, an app link to Report Difficulties to the application developer team, and Share links to share app content via SMS text messaging, social media applications, and more! I hope the developer maintains this app and I hope they add more app features in the future!",
+					"output": "Positive: Coupons, App Features, Navigation, Shopping List"
+
+				}
+			],
+			"enabled": true
+		},
+        "topic2": {
+			"topicName": "Next Best Action",
+			"modelId": "meta-llama/llama-2-70b-chat",
+			"parameters": {
+				"decoding_method": "sample",
+				"temperature": 0.65,
+				"top_p": 1,
+				"top_k": 50,
+				"min_new_tokens": 1,
+				"max_new_tokens": 50,
+				"repetition_penalty": 1,
+				"random_seed": 1205
+			},
+			"instruction": {
+				"detailed": "Take the following review of a mobile application and return the recommend the next best step for a customer service agent to take. If the customer complains about the functionality then forward on the complaint to the company's application developers.If the customer complains includes something about coupons or flyers then also tell them to send them a coupon. If the customer review is positive then there is no next recommended action. The recommendation can only be one sentence. Do not provide an explanation. Question: ",
+				"summarized": ""
+			},
+			"inputPrefix": "Review:",
+			"outputPrefix": "Action:",
+			"examples": [{
+					"input": "",
+					"output": ""
+				}
+			],
+			"enabled": true
+		},
+        "topic3": {
+			"topicName": "Response Generation",
+			"modelId": "meta-llama/llama-2-70b-chat",
+			"parameters": {
+				"decoding_method": "sample",
+				"temperature": 0.65,
+				"top_p": 1,
+				"top_k": 50,
+				"min_new_tokens": 1,
+				"max_new_tokens": 100,
+				"repetition_penalty": 1,
+				"random_seed": 1205
+			},
+			"instruction": {
+				"detailed": "Please recommend a response email for the following customer review of a mobile application. Keep the response short and concise to 2-3 sentences. Do not provide them any offers.",
+				"summarized": ""
+			},
+			"inputPrefix": "Review:",
+			"outputPrefix": "Response:",
+			"examples": [{
+					"input": "",
+					"output": ""
+				}
+			],
+			"enabled": true
+		}
+	}
+}

@@ -1,0 +1,100 @@
+{
+    "name": "IT Incident assist",
+    "language" : "EN",
+    "buttonName": "Incident",
+    "inputs": [
+        "Date: September 5, 2023\nTime: 8:45 AM - 12:30 PM\nLocation: Data Center Facility\n\nIncident Details:\n\n    At 8:45 AM, a sudden power outage occurred in the data center, affecting all servers, networking equipment, and storage systems.\n    The incident was caused by a fault in the electrical grid, resulting in a complete loss of power to the facility.\n    As a result of the power outage, all hosted applications, websites, and online services became inaccessible.\n\nImpact Assessment:\n\n    The power outage caused a significant disruption to business operations, resulting in a loss of productivity and potential revenue.\n    Customer access to online services was severely impacted, leading to dissatisfaction and potential reputation damage.\n    No data loss or hardware damage occurred during the incident.\n\nRoot Cause Analysis:\n\n    The root cause of the incident was determined to be an external electrical grid failure, which led to a complete loss of power to the data center.\n    The electrical grid failure was caused by a severe storm that damaged power lines in the vicinity.",
+        "Date: June 15, 2023\nTime: 10:30 AM - 12:00 PM\nLocation: Office Building\n\nIncident Details:\n\n    At 10:30 AM, users reported experiencing intermittent connectivity issues.\n    IT team identified the problem to be a network hardware failure that caused a cascading impact on multiple systems.\n    The incident affected all departments across the organization, resulting in a complete loss of productivity.\n    Attempts were made to troubleshoot and resolve the issue internally but were unsuccessful.\n\nImpact Assessment:\n\n    The system outage resulted in a significant disruption of business operations, causing a loss of productivity and revenue.\n    Customer service was severely impacted, leading to dissatisfaction and potential reputation damage.\n    Data loss or corruption did not occur during the incident.\n\nRoot Cause Analysis:\n\n    The root cause of the incident was identified as a hardware failure in the network switch that caused network congestion and subsequent system failures.\n    The failure was attributed to a manufacturing defect in the hardware component.",
+        "Date: July 10, 2023\nTime: 2:00 PM - 4:30 PM\nLocation: Virtual Meeting\n\nIncident Details:\n\n    On July 10, 2023, the IT security team detected anomalous activities indicating a potential security breach.\n    Investigation revealed that a hacker gained unauthorized access to the customer database by exploiting a vulnerability in the system.\n    The breach affected approximately 50,000 customer records, including personally identifiable information (PII) such as names, addresses, and email addresses.\n    The incident occurred due to a misconfigured firewall rule that allowed unauthorized access to the database server.\n\nImpact Assessment:\n\n    The security breach resulted in potential exposure of sensitive customer data, leading to concerns over privacy and identity theft.\n    Reputation damage and loss of customer trust were identified as significant impacts.\n    No evidence of financial data or credit card information being compromised was found during the investigation.\n\nRoot Cause Analysis:\n\n    The root cause of the incident was traced back to a misconfigured firewall rule that allowed unauthorized access to the database server.\n    The misconfiguration occurred during a recent system update, which inadvertently altered the firewall settings."
+    ],
+    "topics": {
+        "topic1": {
+            "topicName": "Classify",
+            "modelId": "google/flan-ul2",
+            "parameters": {
+                "decoding_method": "greedy",
+                "temperature": 0.7,
+                "top_p": 1,
+                "top_k": 50,
+                "min_new_tokens": 1,
+                "max_new_tokens": 50
+            },
+            "instruction": {
+                "detailed": "Classify this IT Incident:",
+                "summarized": "Classify this IT Incident:"
+            },
+            "inputPrefix": "Input:",
+            "outputPrefix": "Named entities:",
+            "examples": [
+                {
+                    "input": "Date: June 15, 2023\nTime: 10:30 AM - 12:00 PM\nLocation: Office Building\n\nIncident Details:\n\n    At 10:30 AM, users reported experiencing intermittent connectivity issues.\n    IT team identified the problem to be a network hardware failure that caused a cascading impact on multiple systems.\n    The incident affected all departments across the organization, resulting in a complete loss of productivity.\n    Attempts were made to troubleshoot and resolve the issue internally but were unsuccessful.\n\nImpact Assessment:\n\n    The system outage resulted in a significant disruption of business operations, causing a loss of productivity and revenue.\n    Customer service was severely impacted, leading to dissatisfaction and potential reputation damage.\n    Data loss or corruption did not occur during the incident.\n\nRoot Cause Analysis:\n\n    The root cause of the incident was identified as a hardware failure in the network switch that caused network congestion and subsequent system failures.\n    The failure was attributed to a manufacturing defect in the hardware component.",
+                    "output": " IT System Outage Incident Transcript"
+                },
+                {
+                    "input": "Date: July 10, 2023\nTime: 2:00 PM - 4:30 PM\nLocation: Virtual Meeting\n\nIncident Details:\n\n    On July 10, 2023, the IT security team detected anomalous activities indicating a potential security breach.\n    Investigation revealed that a hacker gained unauthorized access to the customer database by exploiting a vulnerability in the system.\n    The breach affected approximately 50,000 customer records, including personally identifiable information (PII) such as names, addresses, and email addresses.\n    The incident occurred due to a misconfigured firewall rule that allowed unauthorized access to the database server.\n\nImpact Assessment:\n\n    The security breach resulted in potential exposure of sensitive customer data, leading to concerns over privacy and identity theft.\n    Reputation damage and loss of customer trust were identified as significant impacts.\n    No evidence of financial data or credit card information being compromised was found during the investigation.\n\nRoot Cause Analysis:\n\n    The root cause of the incident was traced back to a misconfigured firewall rule that allowed unauthorized access to the database server.\n    The misconfiguration occurred during a recent system update, which inadvertently altered the firewall settings.",
+                    "output": "Security Breach Incident Transcript"
+                }
+            ],
+            "enabled": true
+        },
+        "topic2": {
+            "topicName": "Recommend actions",
+            "modelId": "google/flan-ul2",
+            "parameters": {
+                "decoding_method": "greedy",
+                "temperature": 0.7,
+                "top_p": 1,
+                "top_k": 50,
+                "min_new_tokens": 1,
+                "max_new_tokens": 200
+            },
+            "instruction": {
+                "detailed": "Please recommend the responses and actions to be taken for the following",
+                "summarized": "Please recommend the responses and actions to be taken for the following"
+            },
+            "inputPrefix": "Incident Transcript:",
+            "outputPrefix": "Response and Actions Taken:",
+            "examples": [
+                {
+                    "input": "Date: June 15, 2023\nTime: 10:30 AM - 12:00 PM\nLocation: Office Building\n\nIncident Details:\n\n    At 10:30 AM, users reported experiencing intermittent connectivity issues.\n    IT team identified the problem to be a network hardware failure that caused a cascading impact on multiple systems.\n    The incident affected all departments across the organization, resulting in a complete loss of productivity.\n    Attempts were made to troubleshoot and resolve the issue internally but were unsuccessful.\n\nImpact Assessment:\n\n    The system outage resulted in a significant disruption of business operations, causing a loss of productivity and revenue.\n    Customer service was severely impacted, leading to dissatisfaction and potential reputation damage.\n    Data loss or corruption did not occur during the incident.\n\nRoot Cause Analysis:\n\n    The root cause of the incident was identified as a hardware failure in the network switch that caused network congestion and subsequent system failures.\n    The failure was attributed to a manufacturing defect in the hardware component.",
+                    "output": " Response and Actions Taken:\n\nThe IT team immediately initiated the incident response process and formed a cross-functional team to address the situation.\n    External support from the network hardware vendor was engaged to expedite the troubleshooting process.\n    A temporary workaround was implemented to restore partial system functionality and provide limited access to critical applications.\n    Regular communication updates were provided to users and stakeholders regarding the progress of the resolution efforts."
+                },
+                {
+                    "input": "Date: July 10, 2023\nTime: 2:00 PM - 4:30 PM\nLocation: Virtual Meeting\n\nIncident Details:\n\n    On July 10, 2023, the IT security team detected anomalous activities indicating a potential security breach.\n    Investigation revealed that a hacker gained unauthorized access to the customer database by exploiting a vulnerability in the system.\n    The breach affected approximately 50,000 customer records, including personally identifiable information (PII) such as names, addresses, and email addresses.\n    The incident occurred due to a misconfigured firewall rule that allowed unauthorized access to the database server.\n\nImpact Assessment:\n\n    The security breach resulted in potential exposure of sensitive customer data, leading to concerns over privacy and identity theft.\n    Reputation damage and loss of customer trust were identified as significant impacts.\n    No evidence of financial data or credit card information being compromised was found during the investigation.\n\nRoot Cause Analysis:\n\n    The root cause of the incident was traced back to a misconfigured firewall rule that allowed unauthorized access to the database server.\n    The misconfiguration occurred during a recent system update, which inadvertently altered the firewall settings.",
+                    "output": " Response and Actions Taken:\n\nThe IT security team immediately activated the incident response plan and isolated the affected systems to prevent further unauthorized access.\n \nExternal cybersecurity experts were engaged to assist in forensic analysis and identify the extent of the breach.\nA notification was sent to all affected customers, informing them about the incident, potential risks, and steps to protect their personal information.\n    The compromised firewall rule was promptly corrected, and additional security measures were implemented to enhance the database security."
+                }
+            ],
+            "enabled": false
+        },
+        "topic3": {
+            "topicName": "generate response",
+            "modelId": "google/flan-t5-xxl",
+            "parameters": {
+                "decoding_method": "greedy",
+                "temperature": 0.7,
+                "top_p": 1,
+                "top_k": 50,
+                "min_new_tokens": 50,
+                "max_new_tokens": 500,
+                "repetition_penalty":1.28
+            },
+            "instruction": {
+                "detailed": "Please recommend a response email for the following",
+                "summarized": "Please recommend a response email for the following"
+            },
+            "inputPrefix": "Incident Transcript:",
+            "outputPrefix": "Email to customer:",
+            "examples": [
+                {
+                    "input": "Date: June 15, 2023\nTime: 10:30 AM - 12:00 PM\nLocation: Office Building\n\nIncident Details:\n\n    At 10:30 AM, users reported experiencing intermittent connectivity issues.\n    IT team identified the problem to be a network hardware failure that caused a cascading impact on multiple systems.\n    The incident affected all departments across the organization, resulting in a complete loss of productivity.\n    Attempts were made to troubleshoot and resolve the issue internally but were unsuccessful.\n\nImpact Assessment:\n\n    The system outage resulted in a significant disruption of business operations, causing a loss of productivity and revenue.\n    Customer service was severely impacted, leading to dissatisfaction and potential reputation damage.\n    Data loss or corruption did not occur during the incident.\n\nRoot Cause Analysis:\n\n    The root cause of the incident was identified as a hardware failure in the network switch that caused network congestion and subsequent system failures.\n    The failure was attributed to a manufacturing defect in the hardware component.",
+                    "output": "Subject: IT System Outage Incident - Helpline Support Update\n\nDear [Customer/Employee Name],\n\nWe apologize for the inconvenience caused by the recent IT system outage incident on [Date]. Our team has been working diligently to restore system functionality and address the disruption.\n\nIf you require any assistance or have questions about the incident or the current status of your services, our helpline support team is available to assist you. Please contact our helpline support team at [Helpline Phone Number] or [Helpline Email Address].\n\nWe appreciate your patience and understanding during this incident. We are committed to resolving any concerns you may have and ensuring a smooth transition during the recovery process.\n\nThank you for your cooperation.\n\nSincerely,\n\n[Your Name]\n[Your Position]\n[Company Name]\n[Contact Information]"
+                },
+                {
+                    "input": "Date: July 10, 2023\nTime: 2:00 PM - 4:30 PM\nLocation: Virtual Meeting\n\nIncident Details:\n\n    On July 10, 2023, the IT security team detected anomalous activities indicating a potential security breach.\n    Investigation revealed that a hacker gained unauthorized access to the customer database by exploiting a vulnerability in the system.\n    The breach affected approximately 50,000 customer records, including personally identifiable information (PII) such as names, addresses, and email addresses.\n    The incident occurred due to a misconfigured firewall rule that allowed unauthorized access to the database server.\n\nImpact Assessment:\n\n    The security breach resulted in potential exposure of sensitive customer data, leading to concerns over privacy and identity theft.\n    Reputation damage and loss of customer trust were identified as significant impacts.\n    No evidence of financial data or credit card information being compromised was found during the investigation.\n\nRoot Cause Analysis:\n\n    The root cause of the incident was traced back to a misconfigured firewall rule that allowed unauthorized access to the database server.\n    The misconfiguration occurred during a recent system update, which inadvertently altered the firewall settings.",
+                    "output": "Subject: Security Breach Incident - Helpline Support Update\n\nDear [Customer/Employee Name],\n\nWe are writing to provide you with an update regarding the recent security breach incident that occurred on [Date]. We understand the concern and potential impact this incident may have caused, and we sincerely apologize for any inconvenience caused.\n\nOur dedicated IT security team has been working tirelessly to address the breach and mitigate any potential risks. We have taken immediate steps to enhance our security measures and protect your data.\n\nIf you have any questions or require assistance regarding the incident, your personal information, or steps to safeguard your data, our helpline support team is here to help. Please don't hesitate to reach out to our helpline support team at [Helpline Phone Number] or [Helpline Email Address].\n\nWe want to assure you that protecting your privacy and maintaining the security of your information is of utmost importance to us. We are committed to resolving any concerns you may have and providing the necessary support during this challenging time.\n\nThank you for your understanding and patience throughout this incident. We are actively working to strengthen our security measures and prevent similar incidents in the future.\n\nSincerely,\n\n[Your Name]\n[Your Position]\n[Company Name]\n[Contact Information]"
+                }
+            ],
+            "enabled": false
+        }
+    }
+}

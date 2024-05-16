@@ -1,0 +1,96 @@
+{
+    "name": "Talent Management",
+    "language" : "EN",
+    "buttonName": "HR Use Case",
+    "inputs": [
+            "software developer with strong JAVA and Javascript skills.Do not include the location.",
+            "Data Scientist with track record in time series analysis and experience in air transport industry",
+            "Casey Hall\ncasey.z.hall@gmail.com\n916-566-6124\n\nPROFESSIONAL SUMMARY\nExperienced financial analyst with excellent analytical skills as well as a devotion to customer service. Proposed changes to account opening procedures led to a 15% drop in wait time and processing errors. Looking to leverage banking skills at Merrill National.\n\nWORK EXPERIENCE\nBANKING ANALYST\nRJ Savings and Trust\nDec 2016- Dec 2019\n* Managed 100 investors' due diligence processes and coordinated with international operations managers when required.\n* Performed financial risk assessments and studied banking and financial market trends to prepare activity and progress reports to management.\n* Navigated marketing activities by reaching out to 150+ VC and lead 5% prospects.\n\nASSOCIATE BANKER\nMerriweather Bank\nSept 2015-Dec 2016\n* Reviewed and processed credit and loan applications according to best practices and law.\n* Supported identifying potential sales opportunities to new business clients.\n* Handling daily reconcilement of payments as well as maintaining incoming and outgoing cash records.\n\nEDUCATION\n2011-2014, B.A. in Economics\nUniversity of South Dakota\nPresident of the student finance club for 1 year.\n\nSKILLS\nAbility to work under pressure\nFinancial planning\nRisk assessment\nCustomer service\nProblem solving\nTechnical skills\nInterpersonal skills\n\nCERTIFICATIONS\n* Certified Financial Planner (CFP)\n* Certified Financial Analyst (CFA)",
+            "Goal: become an Analytics Manager\nCurrent role: Senior Data Analyst",
+            "Goal: become an Aviation Maintenance Technician\nCurrent role: Airfield Operations Specialist"
+    ],
+    "topics": {
+        "topic1": {
+            "topicName": "Job Description",
+            "modelId": "meta-llama/llama-2-70b-chat",
+            "parameters": {
+                "decoding_method": "greedy",
+                "temperature": 0.7,
+                "top_p": 1,
+                "top_k": 50,
+                "min_new_tokens": 100,
+                "max_new_tokens": 400
+            },
+            "instruction": {
+                "detailed": "Generate a job description for the following job title and required skills",
+                "summarized": "Generate a job description for the following job title and required skills"
+            },
+            "inputPrefix": "Inputs:",
+            "outputPrefix": "Job Description:",
+            "examples": [
+                {
+                    "input": "",
+                    "output": ""
+                }
+            ],
+            "enabled": true
+        },
+        "topic2": {
+            "topicName": "Resume Analysis",
+            "modelId": "meta-llama/llama-2-70b-chat",
+            "parameters": {
+                "decoding_method": "greedy",
+                "temperature": 0.7,
+                "top_p": 1,
+                "top_k": 50,
+                "min_new_tokens": 1,
+                "max_new_tokens": 60
+            },
+            "instruction": {
+                "detailed": "Read this Resume and extract the Name, the Email, the Degree, the Latest job title and the Latest employer . If you don't find these details in the Resume, fill it as Not Found. ",
+                "summarized": "Read this Resume and extract the Name, the Email, the Degree, the Latest job title and the Latest employer . If you don't find these details in the Resume, fill it as Not Found. "
+            },
+            "inputPrefix": "Resume:",
+            "outputPrefix": "Entities:",
+            "examples": [
+                {
+                    "input": "Rosie Miller\nPittsburgh, PA 15201\n(555) 555-5555\nrosie.miller@msn.com\n\nPROFESSIONAL SUMMARY\nExperienced Restaurant Manager bringing demonstrated success in developing and motivating strong restaurant teams capable of handling over 200 customers hourly. Keeps all areas clean and sanitized while managing inventory and preventing waste. Consistent career history of operations improvement, team building and revenue increases.\n\nWORK HISTORY\nMarch 2014 to Current\nOutback Steakhouse – Pittsburgh, PA\nRestaurant Manager\n* Reduced labor costs by 17% percent while maintaining excellent service and profit levels\nManaged a 7-person team of cooks and back of house staff and a team of 8 front house staff for a busy steakhouse restaurant\n* Continuously evaluated business operations to effectively align workflows for optimal area coverage increasing customer satisfaction rating by 80%\n\nDecember 2010 to February 2014\nTGI Fridays – Pittsburgh, PA Assistant\nRestaurant Manager\n* Reduced restaurant's annual food and labor costs by 15% through proper budgeting, scheduling and management of inventory\n* Kept restaurant compliant with all federal, state and local hygiene and food safety regulations which kept food safety score between 95-100 every inspection\n* Coordinated kitchen stations with managers to cut down on customer wait times by 50%\n\nJuly 2007 to November 2010\nBJ's Restaurants, Inc – Pittsburgh, PA\nRestaurant Team Leader\n* Assisted customers in placing special orders for large-scale events such as corporate events and birthday parties\n* Recruited and hired over 10 employees offering talent, charisma and experience to restaurant team\nPitched in to help host, waitstaff and bussers during exceptionally busy times such as dinner hour\n\nSKILLS\nConflict resolution techniques\nPerformance improvement\nStaff management\nService-oriented\nTrained in performance and wage reviews\nBusiness operations\nInventory control and record keeping\nMarketing and advertising\n\nEDUCATION\nPark Point University Pittsburgh, PA\nBachelor of Arts Hospitality Management",
+                    "output": "Name: Rosie Miller\nEmail: rosie.miller@msn.com\nDegree: Bachelor of Arts Hospitality Management\nLatest job title: Restaurant Manager\nLatest Employer: Outback Steakhouse"
+                },
+                {
+                    "input": "Nick Parker\n123 Somewhere Road, Niceville, FL\n(777) 555-0100\nnickparker@email.com\n\nOBJECTIVE\nAn MBA with 5 years of experience developing and managing marketing campaigns and specialized working knowledge of Google Analytics and AdWords, seeks the role of Social Media Marketing Manager with XYZ Inc. to implement successful digital marketing campaigns and provide exceptional thought leadership.\n\nSUMMARY OF SKILLS\nThree years of specialized experience leading PPC and SEO marketing strategies\nManaged social media accounts for four businesses with yearly sales over $500,000\nCertified Digital Marketer 2016, Udacity\nReceived Employee of the Year Award at ABC Company 2018 and 2019\n\nWORK EXPERIENCE\nSocial Media Marketing Associate, ABC Company, Nashville, TN, 2017-2020\nBuilt a 15k Facebook following and 20k Instagram following for new startup, increasing leads by 160%\nDeveloped compelling CTAs for website and social media copy, producing a 60% increase in sales\nFormulated Instagram strategy and collaborated with influencers in our market to promote top-selling products, resulting in $200,000 net sales in three months\n\nWebsite Manager, 123 Company, Austin, TX, 2014-2017\nTeam leader for the design and development of new mobile application\nConducted A/B testing on paid Facebook and Instagram campaigns, resulting in a boost in conversion from 70% to 90%.\nImplemented innovative SEO strategy to increase organic website traffic 200% in five months\n\nEDUCATION\nUniversity of Michigan, Ann Arbor, MI, 2006-2010\n\nREFERENCES\nAvailable upon request",
+                    "output": "Name: Nick Parker\nEmail: nickparker@email.com\nDegree: Bachelor of Commerce\nLatest job title: Social Media Marketing Associate\nLatest Employer: Awesome Company"
+                }
+            ],
+            "enabled": false
+        },
+        "topic3": {
+            "topicName": "Career Development ",
+            "modelId": "meta-llama/llama-2-70b-chat",
+            "parameters": {
+                "decoding_method": "greedy",
+                "temperature": 0.7,
+                "top_p": 1,
+                "top_k": 50,
+                "min_new_tokens": 50,
+                "max_new_tokens": 600,
+                "repetition_penalty":1.28
+            },
+            "instruction": {
+                "detailed": "suggest a short and concise career development plan in 5 steps with concrete target objectives for the following employee based on his/her current role to reach his/her career goal provided.",
+                "summarized": "suggest a short and concise career development plan in 5 steps with concrete target objectives for the following employee based on his/her current role to reach his/her career goal provided."
+            },
+            "inputPrefix": "Employee profile:",
+            "outputPrefix": "Suggested career development plan:",
+            "examples": [
+
+                                {
+                    "input": "",
+                    "output": ""
+                }
+
+            ],
+            "enabled": false
+        }
+    }
+}

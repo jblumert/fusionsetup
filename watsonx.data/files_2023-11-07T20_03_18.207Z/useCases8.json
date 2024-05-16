@@ -1,0 +1,148 @@
+{
+	"name": "Customer Airport Review",
+	"language" : "EN",
+	"buttonName": "Customer Review",
+	"inputs": [
+		"Andy:\nExcellent and well maintained. Highly organized and efficient. Handles the traffic so well even at this time of the year when there is a huge influx of international students coming to start their Universities in Vancouver. Plenty of taxi services available just outside the airport.  Extremely helpful staff.",
+		"Chris Martin:\nMore than 50% of the flights into and out of the YVR are delayed, security staff aka curbside operations specifically the ones who deal with the parking matters are rude, the bathrooms are most of the time dirty.",
+        "Joey:\nA very comfortable airport to wait for one's flight. Comfy seats and various seating arrangements around artistic energies including a Bill Reid sculpture and other water features and sculptures. There are food stores and retail stores. It feels almost like a shopping mall rather than an airport which is very nice. Probably could do with more charging stations near seating areas."
+			],
+	"topics": {
+		"topic1": {  
+			"topicName": "Categorization",
+			"modelId": "meta-llama/llama-2-70b-chat",
+			"parameters": {
+				"decoding_method": "sample",
+				"temperature": 0.7,
+				"top_p": 1,
+				"top_k": 50,
+				"min_new_tokens": 1,
+				"max_new_tokens": 50,
+				"repetition_penalty": 1,
+				"random_seed": 42,
+                "stop_sequences": [
+                    "\n\n"
+                  ]
+			},
+			"instruction": {
+				"detailed": "Categorize the review as positive, negative or mixed and summaries key points.",
+				"summarized": "Categorize the review as positive, negative or mixed and summaries key points."
+			},
+			"inputPrefix": "Review:",
+			"outputPrefix": "Summary:",
+			"examples": [{
+					"input": "The design of the airport is nice, with natural light falling in making it very bright and cosy. Shops and cafes are very well organized. Water fountains are outside bathrooms, very easy to access. Bathrooms are clean and there's one compartment that is big enough for a trolley to get in. Very convenient. \nI deducted one star for the rude behaviors that I encountered at the security check. The staff's instructions were unclear, and she was not helpful at all. I think one shouldn't expect friendly behaviors at security checks in North America, as my past travel experiences told.",
+					"output": "Mixed Review\n- Good layout\n- Rude, unhelpful staff"
+                },
+                {
+                    "input": "I am delighted to share my positive experience with Vancouver International Airport, as my friend had the opportunity to work there in the past. The airport, renowned for its exceptional facilities and services, truly sets the bar high when it comes to creating a seamless travel experience.\nDuring my visits to the airport, I was impressed by the overall organization and efficiency demonstrated by the staff. The dedication and professionalism exhibited by my friend and their colleagues were truly commendable. Their commitment to ensuring the safety and comfort of passengers was evident in every interaction.\nVancouver International Airport's commitment to customer service was truly outstanding. From the friendly and helpful airport personnel to the smooth and streamlined processes, it was evident that they prioritize the needs and satisfaction of travelers. The airport's clean and well-maintained environment further added to the overall positive experience.\nMoreover, the airport's range of amenities and services catered to the diverse needs of passengers. From a wide selection of dining options to convenient transportation facilities, Vancouver International Airport truly excels in providing a world-class travel experience.\nI would like to extend my heartfelt appreciation to Vancouver International Airport for maintaining such high standards of excellence. It is a testament to the dedicated team behind the scenes, including my friend, who contributed to making the airport a success. I wholeheartedly recommend Vancouver International Airport to anyone seeking a pleasant and hassle-free travel experience.",
+					"output": "Positive Review\n- Good facilities and amenities \n- Nice customer service\n- Good environment"
+
+				},
+                {
+                    "input": "What a shame.\nWhoever planned a construction on a Friday before a long weekend needs some attention and thorough understanding of the situation. It took a while to get a cab after a considerable duration of waiting. Rideshare was the same. No car arrived.\nWhy did you decide to block the whole lanes except for one when you know you would have a lot of travelers?",
+					"output": "Negative Review\n- Poor planning of construction activities\n- Long wait for taxi and rideshare\n- Frustrating experience"
+
+				},
+                {
+                    "input": "Flew to here as airline crew after a 12-hour flight, physically already tired enough when arrived. Witnessing one crew of our team got baggage spot check for almost 1 hour.\nHeard that was just for a training procedure for a junior customs officer! (Not sure. Just heard about it.)\nWe couldn’t leave our colleague behind at the airport before heading to the hotel.\nBut we are so exhausted, needed to rest right away! All we could do was just wait.\nCan the customs authority give some humanity to us?\nWe respect all of your work.\nBut please finish the baggage check work with a timely manner as we also deserve some respect as well!",
+					"output": "Negative Review\n- Long wait for baggage spot check\n- Lack of empathy and respect for airline crew\n- Inhumane treatment"
+
+				},
+                {
+                    "input": "The airport is nice. It is significantly understaffed though. The airlines are super slow with large lines. The distance to certain gates may be close to one mile. Otherwise, nice and dried atmosphere",
+					"output": "Mixed Review\n- Nice airport\n- Understaffed\n- Slow lines\n- Long distance to certain gates"
+
+				},
+				{
+                    "input": "Flew to here as airline crew after a 12-hour flight, physically already tired enough when arrived. Witnessing one crew of our team got baggage spot check for almost 1 hour.\nHeard that was just for a training procedure for a junior customs officer! (Not sure. Just heard about it.)\nWe couldn’t leave our colleague behind in the airport before heading to the hotel.\nBut we are so exhausted, needed to rest right away! All we could do was just wait.\nCan the custom authority give some humanity to us?\nWe respect all of your work.\nBut please finish the baggage check work with a timely manner as we also deserve some respect as well!",
+					"output": "Negative Review\n- Long wait for baggage spot check\n- Lack of empathy and respect for airline crew\n- Inhumane treatment"
+
+				},
+				{
+                    "input": "Signage was not good. Had to ask where toilets were, then blundered into a lounge when I wanted my departure gate. Otherwise  quite good access to departure gates",
+					"output": "Mixed Review\n- Poor signage\n- Confusing layout\n- Good access to departure gates"
+
+				},
+				{
+                    "input": "It's a big airport so you have to keep walking and make sure you follow the signs. The security lines can be long but at least they move at a reasonable speed. Food choices are ok. Parking is very confusing. If someone comes to pick you up, it is a struggle to meet up, so make sure you can make a phone call to figure out who is where.",
+					"output": "Mixed Review\n- Big airport, long walks\n- Long Security lines\n- Ok food choices\n- Confusing parking"
+
+				}
+
+			],
+			"enabled": true
+		},
+        "topic2": {
+			"topicName": "Response Generation",
+			"modelId": "meta-llama/llama-2-70b-chat",
+		"parameters": {
+				"decoding_method": "sample",
+				"temperature": 0.7,
+				"top_p": 1,
+				"top_k": 50,
+				"min_new_tokens": 1,
+				"max_new_tokens": 50,
+				"repetition_penalty": 1,
+				"random_seed": 42,
+                "stop_sequences": [
+                    "\n\n"
+                  ]
+			},
+			"instruction": {
+				"detailed": "Generate a response to the review left by travellers of Vancouver International airport.",
+				"summarized": "Generate a response to the review left by travellers of Vancouver International airport."
+			},
+			"inputPrefix": "Review:",
+			"outputPrefix": "Response:",
+			"examples": [
+				{
+					"input": "Tara Elizabeth:\nParking was easy to do, and the signage made it clear to us where to go for check-in for the flight. I was sending off my teenage children, and the Air Canada staff was really helpful.",
+					"output": "Hi Tara!\nWe're glad to hear you and your children had a great experience!"
+				},
+				{
+					"input": "Daniel Xu:\nSo modern! Very clean and great atmosphere.",
+					"output": "Hi Daniel!\nThank you for the review, we're happy you enjoyed your visit!"
+				},
+				{
+					"input": "C. Nazima London:\nI have a disabled child who uses an AAC Tobi Dynavox to speak.\nWe have traveled almost all of the United States where my child was born and NEVER has TSA taken her AAC away from her to screen it.\nMy child was screaming and was told that she had to give it up if she wanted to go home.\nThat's ridiculous no one should ever be treated that way. This AAC is her voice how dare they do that.\nWe had a late evening flight on 8/9/23. My child cried and cried she could not understand why they would take her voice away.\nThe supervisor said to me that it's not attached to her so it has to go through the screening, then after it went through they kept it from her while they patted her down, she had no way of telling them if they were hurting her or embarrassingly her.\nMy advice to all parents or persons who use a speech device DO NOT FLY TO CANADA, they have the most horrible people at the TSA.\nWe will never be able to see our elderly family who resides in Canada.\nSomeone needs to fix this now!!!",
+					"output": "Hi Nazima,\nWe're terribly sorry you had to go through this. We will investigate this issue immediately."
+				},
+				{
+					"input": "Reg Natarajan:\nI'm prejudiced as it's my home port, but YVR really is the best airport in the world.",
+					"output": "Hi Reg!\nWe're happy to hear you had a great time!"
+				},
+				{
+					"input": "SANJEEV JAIN:\nThis one is while you move towards concourse D. Lounge is well maintained and has ample seating area.\nNot much to eat, the basic stuff and tea/coffee. Options are very limited. Self-service lounge.",
+					"output": "Hi Sanjeev!\nThank you for your feedback, we'll look into expanding the food options in the lounge."
+				},
+				{
+					"input": "Sharon Doyle:\nThere are not enough cafes, especially breakfast places in this airport. There was a cafe near our gate that looked like it was shut down permanently. It was dark, the gates were down and locked and if you peered through the locked gates, it looked like they were storing a lot of stuff inside in there. I walked around a long time looking for something to eat for breakfast and finally decided to wait in a really long line for well over 20 minutes at a Tim Horton’s. I got a muffin and juice. I spoke to several other people in the airport that shared my opinion of not enough breakfast cafes. We were all frustrated.",
+					"output": "Hi Sharon!\nWe're sorry to hear you had trouble finding a place to eat breakfast. We'll look into adding more breakfast options in the future."
+				},
+				{
+					"input": "DS C:\nWhat a shame.\nWhoever planned a construction on a Friday before a long weekend needs some attention and thorough understanding of the situation. It took a while to get a cab after a considerable duration of waiting. Rideshare was the same. No car arrived.\nWhy did you decide to block the whole lanes except for one when you know you would have a lot of travelers?",
+					"output": "Hi DS C,\nWe apologize for the inconvenience caused by the construction. We understand that it was a busy time and we'll look into ways to minimize the impact of future construction projects."
+				},
+				{
+					"input": "Wareef Kabbani:\nThe airport is nice. It is significantly understaffed though. The airlines are super slow with large lines. The distance to certain gates may be close to one mile. Otherwise, nice and dry atmosphere.",
+					"output": "Hi Wareef!\nThank you for your feedback. We'll look into adding more staff to improve the efficiency of check-in and reducing wait times."
+				},
+				{
+					"input": "Cheekeye the-dog:\nWorst airport in the world\nBe there 2 hours on top of what they recommend.\n89% chance they will lose your luggage so pack AirTags\nThey do have a purebred, so at least you won’t be left with a bad taste in your mouth even though it’s the worst airport in the world.",
+					"output": "Hi Cheekeye,\nWe're sorry to hear you had a negative experience. We'll do our best to improve our services and minimize the risk of lost luggage. Thank you for the feedback."
+				},
+				{
+					"input": "Wajahat Faiz:\nTHIS AIRPORT HAS NOT ONE TIM HORTONS BUT TWO TIM HORTONS",
+					"output": "Hi Wajahat!\nWe're glad you're excited about the Tim Hortons! We'll make sure to keep them open and ready for your next visit."
+				},
+				{
+					"input": "Michael Smith:\nSupposed one of the best airports in Canada. I wouldn't rate this with 3rd world airports. Amenities after 2100hrs are next to nonexistent. Impossible to find a beer or wine. If you like fast food and coffee, you're in luck with 4 locations open in the food court. Staff was pleasant but all airline counters were empty of staff. If it wasn't for the fact of being the only gateway to the east in Canada, I'd definitely avoid it.",
+					"output": "Hi Michael,\nWe're sorry to hear you didn't have a positive experience. We'll look into adding more amenities and extending the hours of operation for food and beverage options. Thank you for your feedback."
+				}	
+			],
+			"enabled": true
+		}
+
+	}
+}

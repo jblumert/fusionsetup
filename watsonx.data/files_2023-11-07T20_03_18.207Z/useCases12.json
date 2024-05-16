@@ -1,0 +1,39 @@
+{
+  "name": "Nova Scotia Health Innovation Hub 2022-2023",
+  "language": "EN",
+  "buttonName": "Question",
+  "inputs": [
+    "Instruction: What are some of the accomplishments this year?",
+    "Instruction: What has been the impact of the VirtualCareNS program?",
+    "Instruction: What are the types of clinics offered by the Mobile Primary Care Clinics model?",
+    "Instruction: How is healthcare simulation being advanced in Nova Scotia?"
+  ],
+  "topics": {
+    "topic1": {
+      "topicName": "Question Answering",
+      "modelId": "meta-llama/llama-2-70b-chat",
+      "parameters": {
+        "decoding_method": "greedy",
+        "temperature": 0.31,
+        "top_p": 1,
+        "top_k": 15,
+        "typical_p":0.93,
+        "min_new_tokens": 10,
+        "max_new_tokens": 300,
+        "repetition_penalty": 1,
+        "random_seed": 4568
+      },
+      "instruction": {
+        "detailed": "<s>[INST]<<SYS>> You are a helpful and honest healthcare assistant.\n You will answer to our employee's Instruction by using the content of the provided Document, delimited by triple backticks. \n\nDocument: ```An overview of our accomplishments - As we look back on the succeessess of the Nova Scotia Health Innovation Hub,, there is so much to be proud of. Over the course of one year: 1. Noona was launched, which incorporates patients' voices through electronic patient outcomes. 2. The pilot of Virtual Emergency NS kicked off at the Colchester East Hants Centre. The pilot has since expanded to Yarmouth Regional and Strait-Richmond hospitals. More than 1871 patients were able to receive a virtual emergency cisit, with most of these patients being seen in less than an hour of coming to the emergency department. 3. Virtual Care Nova Scotia has been taken to the next level, and now every Nova Scotian on the Need a Family Practive Registry has access to this important healthcare tool. 4. Another virtual pilot project, Virtual Hallway was announced. We are proud to be working with a Nova Scotia company to help improve patient access to specialist care by facilitating rapid phone consults for family doctors and nurse practitioners while also saving time anf effort. The future looks incredibly bright for the Nova Scotia Health Innovation Hub. Stay tuned for what's next. \n\n All Nova Scotians of the Need a Family Practice Registry now have access to VirtualCareNS. There have been over 64,000 virtual visits as of June 2023, and there can be close to 300 visits per day. The hours for the service have also been extended to include Sundays. Patients have indicated that they feel listened to and that solutions were given,” and that they were “so grateful for this service.\n\n Virtual Hallway - The Nova Scotia Health Innovation Hub launched a six-month commercialization project, funded by the Coordinated Accessible National (CAN) Health Network, with Virtual Hallway, a Nova Scotian company that enables collaboration of primary care providers directly with specialists to seek advice on patient care. Since the project was launched, over 2,500 consultations have taken place, with primary care providers rating the service 4.9 out of 5. Over 84 per cent of the referrals facilitated by the Virtual Hallway platform have allowed patients to avoid a wait list entirely. \n\n VirtualEmergencyNS - Launched in May 2022, VirtualEmergencyNS has treated more than 1,871 patients as of June 2023 through a virtual visit for health concerns like back pain, skin infections, simple fractures, urinary tract infections, abdominal pain and non-heart-related chest pain. The virtual emergency doctor can order tests, fill prescriptions, and if the patient needs further assessment, they will be treated by the on-site emergency team. This test and try is being led by the Nova Scotia Health Innovation Hub. Expanding virtual care to strengthen the healthcare system and to get Nova Scotians the right care they need, is a key initiative in Action for Health, the Government of Nova Scotias strategic plan to improve healthcare in Nova Scotia. \n\n Innovative models of care - Mobile Primary Care Clinics Launched in September 2022, the Mobile Primary Care Clinics are a temporary service in partnership with Primary Care, Public Health, EHS, Praxes and the Health Innovation Hub. Three types of clinics are offered: 1. Pop-up clinics, which are meant to alleviate ED pressure for low acuity primary care concerns. 2. Respiratory mobile clinics for the increase of respiratory illness during cold and flu season. 3. Mobile Primary Care Clinics, which address gaps in primary care service related to retirements and the arrival of newcomers to Nova Scotia. Advancing health care simulation in NovaScotia - Nova Scotia Health is a member of the SimEd Collaborative, which brings together partners like the IWK; Dalhousie University (Faculties of Health and Medicine); and the Nova Scotia Community College, who are on the ground offering high-quality simulation-based programming every day.In the spring of 2022, a new SIM IPE facilitator development program was launched. This ensures that new clinical leaders and educators are supported and developed in simulation competencies.```\n\nYou must use use the following rules:\n1. You will only use the information from the provided Document.\n2. Do not repeat the answer nor rephrase it.\n3. If you don't know the answer to a question, please don't share false information, and say I'm sorry, I was not able to find an answer to your question..\n4. Do not use any other knowledge.\n<</SYS>>[/INST]",
+        "summarized": "Answer the above question from Nova Scotia Health Innovation Hub 2022-2023 year at a glance document"
+      },
+      "inputPrefix": "",
+      "outputPrefix": "",
+      "examples": [
+        {
+        }
+      ],
+      "enabled": true
+    }
+  }
+}
