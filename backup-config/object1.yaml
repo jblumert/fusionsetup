@@ -1,0 +1,17 @@
+apiVersion: data-protection.isf.ibm.com/v1alpha1
+kind: BackupStorageLocation
+metadata:
+  annotations:
+    guardian.ibm.com/Id: 0433ff8c-be4c-4342-8635-25f2a2a3eb12
+  name: object1
+  namespace: ibm-spectrum-fusion-ns
+  labels:
+    dp.isf.ibm.com/backupstoragelocation-type: s3
+    dp.isf.ibm.com/provider-name: isf-backup-restore
+spec:
+  credentialName: object1-secret-0
+  params:
+    bucket: backup
+    endpoint: 'http://192.168.252.5:9000'
+  provider: isf-backup-restore
+  type: s3

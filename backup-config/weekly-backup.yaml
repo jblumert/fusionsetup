@@ -1,0 +1,20 @@
+apiVersion: data-protection.isf.ibm.com/v1alpha1
+kind: BackupPolicy
+metadata:
+  annotations:
+    dp.isf.ibm.com/provider-name: isf-backup-restore
+    guardian.ibm.com/Id: cd8d114f-2be3-480b-8ed6-c57862914077
+  name: weekly-backup
+  namespace: ibm-spectrum-fusion-ns
+  labels:
+    dp.isf.ibm.com/backupstoragelocation-name: object1
+    dp.isf.ibm.com/provider-name: isf-backup-restore
+spec:
+  backupStorageLocation: object1
+  provider: isf-backup-restore
+  retention:
+    number: 30
+    unit: days
+  schedule:
+    cron: 00 0  * * 0
+    timezone: America/New_York

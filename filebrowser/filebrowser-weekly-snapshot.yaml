@@ -1,0 +1,18 @@
+apiVersion: data-protection.isf.ibm.com/v1alpha1
+kind: PolicyAssignment
+metadata:
+  annotations:
+    dp.isf.ibm.com/provider-name: isf-backup-restore
+    guardian.ibm.com/Id: edfcdf62-f269-4519-ae86-cb8e3264a172
+  name: >-
+    filebrowser-weekly-backup-apps.6627e0bc7e0fed001ed97591.cloud.techzone.ibm.com
+  namespace: ibm-spectrum-fusion-ns
+  labels:
+    dp.isf.ibm.com/application-name: filebrowser
+    dp.isf.ibm.com/backuppolicy-name: weekly-backup
+    dp.isf.ibm.com/backupstoragelocation-name: object1
+    dp.isf.ibm.com/provider-name: isf-backup-restore
+spec:
+  application: filebrowser
+  backupPolicy: weekly-backup
+  runNow: false

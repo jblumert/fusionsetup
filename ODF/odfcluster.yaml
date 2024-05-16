@@ -1,0 +1,23 @@
+apiVersion: odf.isf.ibm.com/v1
+kind: OdfCluster
+metadata:
+  name: odfcluster
+  namespace: ibm-spectrum-fusion-ns
+spec:
+  autoScaleUp: true
+  creator: CreatedByFusion
+  encryption:
+    clusterWide: true
+    keyManagementService: {}
+  externalStorage: {}
+  localVolumeSetSpec:
+    deviceTypes:
+    - disk
+    - part
+    diskType: HDD
+    size: 700Gi
+  storageClient: {}
+  storageNodes:
+  - storage-3
+  - storage-1
+  - storage-2

@@ -1,0 +1,18 @@
+apiVersion: scale.spectrum.ibm.com/v1beta1
+kind: RemoteCluster
+metadata:
+  labels:
+    app.kubernetes.io/instance: ibm-spectrum-scale
+    app.kubernetes.io/name: cluster
+  name: ibm-spectrum-scale-remote-2610328468137304447
+  namespace: ibm-spectrum-scale
+spec:
+  contactNodes:
+  - scale01
+  gui:
+    csiSecretName: ibm-spectrum-scale-csi-secret-2610328468137304447
+    host: 192.168.252.5
+    insecureSkipVerify: true
+    port: 443
+    scheme: https
+    secretName: ibm-spectrum-scale-gui-secret-2610328468137304447

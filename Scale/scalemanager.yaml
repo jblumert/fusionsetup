@@ -1,0 +1,7 @@
+apiVersion: cns.isf.ibm.com/v1
+kind: ScaleManager
+metadata:
+  name: scalemanager
+  namespace: ibm-spectrum-fusion-ns
+spec:
+  creator: Fusion
