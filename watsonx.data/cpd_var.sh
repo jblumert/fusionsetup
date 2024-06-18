@@ -21,7 +21,8 @@ export OCP_URL=https://api.660cae5f3abee4001ecaab91.cloud.techzone.ibm.com:6443
 export OPENSHIFT_TYPE=self-managed
 export IMAGE_ARCH=amd64
 export OCP_USERNAME=kubeadmin
-export OCP_PASSWORD=6dZSj-J6KrW-tJUAr-9yAQj
+# add your Kubeadmin password
+export OCP_PASSWORD=<password>
 export KUBECONFIG=~/.kube/config
 # export OCP_TOKEN=<enter your token>
 export SERVER_ARGUMENTS="--server=${OCP_URL}"
@@ -58,8 +59,7 @@ export STG_CLASS_FILE=ocs-storagecluster-cephfs
 # IBM Entitled Registry
 # ------------------------------------------------------------------------------
 
-export IBM_ENTITLEMENT_KEY=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2OTQ1NTM1MzYsImp0aSI6ImI0YmU3MmU1NzVlMTQ2YTc4ZWRkZGVjMzVjN2I3ZmIxIn0.aJGobvczAZKb8EISzQQ3AYngPHwp6-41U93fMPdXKKs
-
+export IBM_ENTITLEMENT_KEY=<your entitlement>
 
 # ------------------------------------------------------------------------------
 # Private container registry
